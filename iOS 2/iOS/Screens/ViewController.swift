@@ -25,15 +25,23 @@ class ViewController: UIViewController {
         }
         
     }
-    
-    
     override func viewDidLoad() {
+        testAnimation()
         super.viewDidLoad()
         let hideAction = UITapGestureRecognizer (target: self, action: #selector(hideKeyboard))
             view.addGestureRecognizer(hideAction)
         }
         @objc func hideKeyboard() {
             view.endEditing(true)
+    }
+    
+    func testAnimation () {
+        UIView.animate(withDuration: 1.0,
+                       delay: 1.0,
+                       options: [.repeat, .autoreverse],
+                       animations: {
+                        self.login.transform = CGAffineTransform (scaleX: 1.1, y: 1.1)
+        })
     }
 
 
